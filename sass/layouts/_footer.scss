@@ -1,0 +1,85 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
+.footer {
+  background-color: variables.$color-grey-dark-3;
+  padding: 1rem 0;
+  font-size: 1.4rem;
+  color: variables.$color-grey-light-1;
+
+  @include mixins.respond(tab-port) {
+    padding: 0.8rem 0;
+  }
+
+  &__logo-box {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    @include mixins.respond(tab-port) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__logo {
+    width: 10rem;
+    height: auto;
+    margin-top: 5rem;
+  }
+
+  &__navigation {
+    border-top: 1px solid variables.$color-grey-dark;
+    padding-top: 1rem;
+    display: inline-block;
+
+    @include mixins.respond(tab-port) {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__item {
+    display: inline-block;
+
+    &:not(:last-child) {
+      margin-right: 1.5rem;
+    }
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      color: variables.$color-grey-light-1;
+      background-color: variables.$color-grey-dark-3;
+      text-decoration: none;
+      text-transform: uppercase;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+
+    &:hover,
+    &:active {
+      color: variables.$color-primary;
+      box-shadow: 0 1rem 2rem rgba(variables.$color-primary, 0.4);
+      transform: translateY(-0.2rem);
+      background-color: rgba(variables.$color-white, 0.1);
+    }
+  }
+
+  &__copyright {
+    border-top: 1px solid variables.$color-grey-dark;
+    padding-top: 1rem;
+    width: 80%;
+    float: right;
+    padding-bottom: 1.5rem;
+
+    @include mixins.respond(tab-port) {
+      width: 100%;
+      text-align: center;
+      float: none;
+    }
+  }
+}
